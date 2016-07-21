@@ -52,7 +52,6 @@ func (e *Env) MenuTree(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// TODO: call models.MenuAll
 	m := new(models.Menu)
 	menus, _ := m.All(e.DB)
 	//if err != nil {
