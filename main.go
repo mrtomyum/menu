@@ -31,6 +31,9 @@ func main() {
 	log.Println("start Router GET MenuAll")
 	r.HandleFunc("/api/v1/menu", c.MenuInsert).Methods("POST")
 	log.Println("start Router POST MenuNew")
+	r.HandleFunc("/api/v1/menu/tree", c.MenuTree).Methods("GET")
+	log.Println("start Router GET MenuTree")
+
 	http.Handle("/", r)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8081", nil)
 }
