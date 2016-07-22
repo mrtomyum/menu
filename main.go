@@ -8,8 +8,10 @@ import (
 	"net/http"
 )
 
+//TODO: Move Config to JSON file and Create Config{} to handle DB const.
 const (
 	DB_HOST = "tcp(nava.work:3306)"
+	//TODO: เมื่อรันจริงต้องเปลี่ยนเป็น Docker Network Bridge IP เช่น 172.17.0.3 เป็นต้น
 	DB_NAME = "system"
 	DB_USER = "root"
 	DB_PASS = "mypass"
@@ -35,5 +37,5 @@ func main() {
 	log.Println("start Router GET MenuTree")
 
 	http.Handle("/", r)
-	http.ListenAndServe(":8081", nil)
+	http.ListenAndServe(":8001", nil)
 }

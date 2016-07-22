@@ -7,7 +7,7 @@ type Node struct {
 	ParentID int     `json:"-"`
 	Text     string  `json:"text"`
 	Icon     string  `json:"icon"`
-	Path     string  `json:"path"`
+	Path     string  `json:"href"`
 	Note string `json:"note"`
 	Child    []*Node `json:"nodes,omitempty"`
 }
