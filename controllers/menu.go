@@ -64,6 +64,8 @@ func (e *Env) MenuTree(w http.ResponseWriter, r *http.Request) {
 		n.ID = menu.ID
 		n.ParentID = menu.ParentID
 		n.Text = menu.Name
+		n.Path = menu.Path
+		n.Note = menu.Note
 		jsonNode.Add(n)
 	}
 	output, _ := json.Marshal(jsonNode)

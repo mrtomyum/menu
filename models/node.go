@@ -3,14 +3,16 @@ package models
 import ()
 
 type Node struct {
-	ID       int `json:"-"`
-	ParentID int `json:"-"`
-	Text     string `json:"text"`
-	Icon     string `json:"icon"`
+	ID       int     `json:"-"`
+	ParentID int     `json:"-"`
+	Text     string  `json:"text"`
+	Icon     string  `json:"icon"`
+	Path     string  `json:"path"`
+	Note string `json:"note"`
 	Child    []*Node `json:"nodes,omitempty"`
 }
 
-func (this *Node) Size() int{
+func (this *Node) Size() int {
 	var size int = len(this.Child)
 	for _, c := range this.Child {
 		size += c.Size()
@@ -18,7 +20,7 @@ func (this *Node) Size() int{
 	return size
 }
 
-func (this *Node) Add(nodes... *Node) bool {
+func (this *Node) Add(nodes ...*Node) bool {
 	var size = this.Size()
 	for _, n := range nodes {
 		if n.ParentID == this.ID {
@@ -31,5 +33,5 @@ func (this *Node) Add(nodes... *Node) bool {
 			}
 		}
 	}
-	return this.Size() == size + len(nodes)
+	return this.Size() == size+len(nodes)
 }
